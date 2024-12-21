@@ -1,0 +1,123 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-image: url('Imagen.png');  /* Asegúrate de cambiar la ruta por la ubicación de tu imagen */
+    background-size: cover;  /* Hace que la imagen cubra toda la pantalla */
+    background-position: center;  /* Centra la imagen */
+    background-attachment: fixed;  /* El fondo se fija en su lugar */
+    height: 100vh;  /* Asegura que el fondo cubra toda la altura de la pantalla */
+    color: white;
+    font-family: 'Poppins', sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    text-align: center;
+    overflow: hidden;
+    position: relative;
+}
+
+body::before {
+    content: "";  
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url('Imagen.png');  /* Fondo con imagen */
+    background-size: cover;
+    background-position: center;
+    filter: blur(8px);  /* Difumina el fondo para mejorar la visibilidad */
+    z-index: -1;  /* Asegura que el fondo esté detrás del contenido */
+}
+
+h1 {
+    font-size: 6rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    margin-top: 50px;
+    background: linear-gradient(to right, #74b9ff, #55aaff, #ffffff, #55aaff, #74b9ff); 
+    -webkit-background-clip: text; 
+    background-clip: text; 
+    color: transparent; 
+    text-shadow: 4px 4px 10px rgba(0, 0, 0, 0.7); /* Mejora el contraste con sombra más fuerte */
+    animation: textAnimation 2s ease-in-out infinite;
+}
+
+/* Animación para el texto */
+@keyframes textAnimation {
+    0% {
+        transform: scale(1);
+        opacity: 0.8;
+    }
+    50% {
+        transform: scale(1.1);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 0.8;
+    }
+}
+
+.social-links {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 100%;
+    max-width: 600px;
+}
+
+.social-links a {
+    color: white;
+    font-size: 1.8rem;
+    margin: 15px 0;
+    text-decoration: none;
+    font-weight: 500;
+    padding: 15px 25px;
+    border-radius: 50px; /* Bordes redondeados */
+    background: rgba(255, 255, 255, 0.3);  /* Fondo semi-transparente */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease-in-out;  /* Transición suave para todos los cambios */
+    width: 100%;  /* Para que se adapten al contenedor */
+    max-width: 350px;  /* Límite de ancho */
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Sombra sutil */
+}
+
+.social-links a:hover {
+    background: linear-gradient(to right, #74b9ff, #55aaff, #ffffff, #55aaff, #74b9ff); /* Fondo con gradiente */
+    color: transparent;
+    background-clip: text;  /* Hacemos que el color se vea solo en el texto */
+    text-shadow: none;  /* Eliminamos la sombra en hover */
+    transform: translateY(-5px);  /* Efecto de movimiento en hover */
+}
+
+.social-links a i {
+    margin-right: 10px;  /* Espaciado entre el icono y el texto */
+    font-size: 2.5rem;  /* Aumentamos el tamaño de los iconos */
+}
+
+@media (max-width: 768px) {
+    h1 {
+        font-size: 4rem;
+    }
+
+    .social-links a {
+        font-size: 1.4rem;
+    }
+
+    .social-links a i {
+        font-size: 2rem;
+    }
+}
